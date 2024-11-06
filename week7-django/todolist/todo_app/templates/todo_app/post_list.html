@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Post List{% endblock %}
+
+{% block content %}
+    <h1>Blog Posts</h1>
+    <ul class="list-group">
+        {% for post in posts %}
+            <li class="list-group-item">
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.content|truncatewords:30 }}</p>
+                <a href="{% url 'post_detail' post.id %}" class="btn btn-primary">Read More</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
